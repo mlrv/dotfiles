@@ -26,6 +26,9 @@
 	nmap <silent> <c-h> :wincmd h<CR>
 	nmap <silent> <c-l> :wincmd l<CR>
 
+" Change cursor in Insert mode
+	autocmd InsertEnter * set cul
+	autocmd InsertLeave * set nocul
 
 	map <tab> %
 
