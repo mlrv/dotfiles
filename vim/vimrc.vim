@@ -1,3 +1,6 @@
+" Plugins
+execute pathogen#infect()
+
 " General Vim settings
 	syntax on
 	let mapleader=","
