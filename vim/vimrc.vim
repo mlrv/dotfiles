@@ -5,14 +5,12 @@ execute pathogen#infect()
 	syntax on
 	let mapleader=","
 	set autoindent
-	set tabstop=4
-	set shiftwidth=4
-	set dir=/tmp/
+	set tabstop=2
+	set shiftwidth=2
+	set noexpandtab
+	set dir=/tmp/	
 	set relativenumber 
 	set number
-
-	autocmd Filetype html setlocal sw=2 expandtab
-	autocmd Filetype javascript setlocal sw=4 expandtab
 
 	set hlsearch
 	nnoremap <C-l> :nohl<CR><C-l>:echo "Search Cleared"<CR>
@@ -29,10 +27,6 @@ execute pathogen#infect()
 	nmap <silent> <c-h> :wincmd h<CR>
 	nmap <silent> <c-l> :wincmd l<CR>
 
-" Change cursor in Insert mode
-	autocmd InsertEnter * set cul
-	autocmd InsertLeave * set nocul
-
 	map <tab> %
 
 	set backspace=indent,eol,start
@@ -48,7 +42,14 @@ execute pathogen#infect()
 	set mouse=a
 	set incsearch
 
+" Change cursor in Insert mode
+	autocmd InsertEnter * set cul
+	autocmd InsertLeave * set nocul
+
 " Language Specific
+	" Brackets
+		inoremap { {<CR>}<Esc>O<TAB>
+
 	" Tabs
 		so ~/dotfiles/vim/tabs.vim
 
