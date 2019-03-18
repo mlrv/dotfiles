@@ -9,4 +9,5 @@ fi
 
 echo "Updating configuration"
 (cd ~/dotfiles && git pull && git submodule update --init --recursive)
+rsync -av --ignore-existing ~/dotfiles/vim/plugins/. ~/.vim/bundle
 source ~/dotfiles/zsh/zshrc.sh
