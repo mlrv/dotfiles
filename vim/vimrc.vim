@@ -1,6 +1,10 @@
 " Plugins
 execute pathogen#infect()
 
+" CtrlP
+set runtimepath^=~/.vim/bundle/ctrlp.vim
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
+
 " General Vim settings
 	syntax on
 	let mapleader=","
