@@ -7,6 +7,7 @@ let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
 
 " General Vim settings
 	syntax on
+	filetype plugin indent on
 	let mapleader=","
 	set autoindent
 	set tabstop=2

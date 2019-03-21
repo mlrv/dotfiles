@@ -13,3 +13,6 @@
 [submodule "vim/plugins/ctrlp.vim"]
 	path = vim/plugins/ctrlp.vim
 	url = https://github.com/ctrlpvim/ctrlp.vim.git
+[submodule "vim/plugins/haskell-vim"]
+	path = vim/plugins/haskell-vim
+	url = https://github.com/neovimhaskell/haskell-vim.git
