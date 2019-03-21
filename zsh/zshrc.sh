@@ -10,6 +10,7 @@
 	alias c="clear"
 	alias gcm="git checkout master"
 	alias gpm="git pull origin master"
+	alias gc="git commit -a"
 	mkdir -p /tmp/log
 	
 # Settings
