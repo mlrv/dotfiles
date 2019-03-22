@@ -1,9 +1,33 @@
 " Plugins
-execute pathogen#infect()
+	execute pathogen#infect()
+
+" supertab
+	let g:SuperTabDefaultCompletionType = '<c-x><c-o>'
+
+	if has("gui_running")
+		imap <c-space> <c-r>=SuperTabAlternateCompletion("\<lt>c-x>\<lt>c-o>")<cr>
+	else " no gui
+		if has("unix")
+			inoremap <Nul> <c-r>=SuperTabAlternateCompletion("\<lt>c-x>\<lt>c-o>")<cr>
+		endif
+	endif
+
+	let g:haskellmode_completion_ghc = 1
+	autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
 
 " CtrlP
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
+
+" Syntastic
+	map <Leader>s :SyntasticToggleMode<CR>
+	set statusline+=%#warningmsg#
+	set statusline+=%{SyntasticStatuslineFlag()}
+	set statusline+=%*
+	let g:syntastic_always_populate_loc_list = 1
+	let g:syntastic_auto_loc_list = 0
+	let g:syntastic_check_on_open = 0
+	let g:syntastic_check_on_wq = 0
 
 " General Vim settings
 	syntax on
@@ -69,6 +93,13 @@ let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
 	" Markup
 		inoremap <leader>< <esc>I<<esc>A><esc>yypa/<esc>O<tab>
 
+	" Haskell
+		set clipboard=unnamedplus,autoselect
+		set completeopt=menuone,menu,longest
+		set wildignore+=*\\tmp\\*,*.swp,*.swo,*.zip,.git,.cabal-sandbox
+		set wildmode=longest,list,full
+		set wildmenu
+		set completeopt+=longest
 
 " File and Window Management 
 	inoremap <leader>w <Esc>:w<CR>

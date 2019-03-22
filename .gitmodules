@@ -16,3 +16,21 @@
 [submodule "vim/plugins/haskell-vim"]
 	path = vim/plugins/haskell-vim
 	url = https://github.com/neovimhaskell/haskell-vim.git
+[submodule "vim/plugins/ghcmod-vim"]
+	path = vim/plugins/ghcmod-vim
+	url = https://github.com/eagletmt/ghcmod-vim.git
+[submodule "vim/plugins/neco-ghc"]
+	path = vim/plugins/neco-ghc
+	url = https://github.com/eagletmt/neco-ghc
+[submodule "vim/plugins/neocomplete.vim"]
+	path = vim/plugins/neocomplete.vim
+	url = https://github.com/Shougo/neocomplete.vim.git
+[submodule "vim/plugins/nerdcommenter"]
+	path = vim/plugins/nerdcommenter
+	url = https://github.com/scrooloose/nerdcommenter.git
+[submodule "vim/plugins/syntastic"]
+	path = vim/plugins/syntastic
+	url = https://github.com/scrooloose/syntastic.git
+[submodule "vim/plugins/supertab"]
+	path = vim/plugins/supertab
+	url = https://github.com/ervandew/supertab.git
