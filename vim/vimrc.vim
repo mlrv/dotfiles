@@ -139,3 +139,8 @@ let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
 " Search and replace word under cursor
 	nnoremap  <C-s> <esc>:%s/<C-r><C-w>//gc<left><left><left>
 
+" Indent
+	nnoremap <TAB> >>
+	nnoremap <S-TAB> <<
+	vnoremap <TAB> >gv
+	vnoremap <S-TAB> <gv
