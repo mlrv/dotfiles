@@ -31,9 +31,18 @@
 [submodule "vim/plugins/syntastic"]
 	path = vim/plugins/syntastic
 	url = https://github.com/scrooloose/syntastic.git
-[submodule "vim/plugins/supertab"]
-	path = vim/plugins/supertab
-	url = https://github.com/ervandew/supertab.git
 [submodule "vim/plugins/ack.vim"]
 	path = vim/plugins/ack.vim
 	url = https://github.com/mileszs/ack.vim.git
+[submodule "vim/plugins/vim-scala"]
+	path = vim/plugins/vim-scala
+	url = https://github.com/derekwyatt/vim-scala
+[submodule "vim/plugins/deoplete.nvim"]
+	path = vim/plugins/deoplete.nvim
+	url = https://github.com/Shougo/deoplete.nvim
+[submodule "vim/plugins/nvim-yarp"]
+	path = vim/plugins/nvim-yarp
+	url = https://github.com/roxma/nvim-yarp
+[submodule "vim/plugins/vim-hug-neovim-rpc"]
+	path = vim/plugins/vim-hug-neovim-rpc
+	url = https://github.com/roxma/vim-hug-neovim-rpc

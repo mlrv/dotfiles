@@ -1,17 +1,6 @@
 " Plugins
 	execute pathogen#infect()
 
-" supertab
-	let g:SuperTabDefaultCompletionType = '<c-x><c-o>'
-
-	if has("gui_running")
-		imap <c-space> <c-r>=SuperTabAlternateCompletion("\<lt>c-x>\<lt>c-o>")<cr>
-	else " no gui
-		if has("unix")
-			inoremap <Nul> <c-r>=SuperTabAlternateCompletion("\<lt>c-x>\<lt>c-o>")<cr>
-		endif
-	endif
-
 	let g:haskellmode_completion_ghc = 1
 	autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
 
@@ -28,6 +17,10 @@ let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
 	let g:syntastic_auto_loc_list = 0
 	let g:syntastic_check_on_open = 0
 	let g:syntastic_check_on_wq = 0
+
+" deoplete
+	let g:deoplete#enable_at_startup = 1
+
 
 " General Vim settings
 	syntax on
@@ -55,8 +48,6 @@ let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
 	nmap <silent> <c-j> :wincmd j<CR>
 	nmap <silent> <c-h> :wincmd h<CR>
 	nmap <silent> <c-l> :wincmd l<CR>
-
-	map <tab> %
 
 	set backspace=indent,eol,start
 
@@ -139,8 +130,8 @@ let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
 " Search and replace word under cursor
 	nnoremap  <C-s> <esc>:%s/<C-r><C-w>//gc<left><left><left>
 
-" Indent
-	nnoremap <TAB> >>
-	nnoremap <S-TAB> <<
-	vnoremap <TAB> >gv
-	vnoremap <S-TAB> <gv
+" Indent (temporarily disable these until I find a better solution)
+	"nnoremap <TAB> >>
+	"nnoremap <S-TAB> <<
+	"vnoremap <TAB> >gv
+	"vnoremap <S-TAB> <gv
