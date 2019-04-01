@@ -1,8 +1,18 @@
-" Plugins
 execute pathogen#infect()
 
-let g:haskellmode_completion_ghc = 1
-autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
+" General Vim settings
+syntax on
+filetype plugin indent on
+let mapleader=","
+set autoindent
+set tabstop=2
+set shiftwidth=2
+set noexpandtab
+set dir=/tmp/	
+set number
+set relativenumber 
+set hlsearch
+nnoremap <C-l> :nohl<CR><C-l>:echo "Search Cleared"<CR>
 
 " CtrlP
 set runtimepath^=~/.vim/bundle/ctrlp.vim
@@ -18,27 +28,13 @@ let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 
-" deoplete
+
+
+
+" Deoplete
 let g:deoplete#enable_at_startup = 1
 
-
-" General Vim settings
-syntax on
-filetype plugin indent on
-let mapleader=","
-set autoindent
-set tabstop=2
-set shiftwidth=2
-set noexpandtab
-set dir=/tmp/	
-set relativenumber 
-set number
-
-set hlsearch
-nnoremap <C-l> :nohl<CR><C-l>:echo "Search Cleared"<CR>
-nnoremap <C-c> :set norelativenumber<CR>:set nonumber<CR>:echo "Line numbers turned off."<CR>
-nnoremap <C-n> :set relativenumber<CR>:set number<CR>:echo "Line numbers turned on."<CR>
-
+" Avoid using arrow keys
 map <up> <nop>
 map <down> <nop>
 map <left> <nop>
@@ -49,11 +45,13 @@ nmap <silent> <c-j> :wincmd j<CR>
 nmap <silent> <c-h> :wincmd h<CR>
 nmap <silent> <c-l> :wincmd l<CR>
 
+" Make sure backspace works normnally
 set backspace=indent,eol,start
 
 nnoremap <Space> za
 nnoremap <leader>z zMzvzz
 
+" Select whole row
 nnoremap vv 0v$
 
 set listchars=tab:\|\ 
@@ -66,31 +64,28 @@ set incsearch
 autocmd InsertEnter * set cul
 autocmd InsertLeave * set nocul
 
-" Language Specific
 " Brackets
-	inoremap { {<CR>}<Esc>O<TAB>
+inoremap { {<CR>}<Esc>O<TAB>
 
 " Tabs
-	so ~/dotfiles/vim/tabs.vim
+so ~/dotfiles/vim/tabs.vim
 
-" General
-	inoremap <leader>for <esc>Ifor (int i = 0; i < <esc>A; i++) {<enter>}<esc>O<tab>
-	inoremap <leader>if <esc>Iif (<esc>A) {<enter>}<esc>O<tab>
-	
 " Typescript
-	autocmd BufNewFile,BufRead *.ts set syntax=javascript
-	autocmd BufNewFile,BufRead *.tsx set syntax=javascript
+autocmd BufNewFile,BufRead *.ts set syntax=javascript
+autocmd BufNewFile,BufRead *.tsx set syntax=javascript
 
 " Markup
-	inoremap <leader>< <esc>I<<esc>A><esc>yypa/<esc>O<tab>
+inoremap <leader>< <esc>I<<esc>A><esc>yypa/<esc>O<tab>
 
 " Haskell
-	set clipboard=unnamedplus,autoselect
-	set completeopt=menuone,menu,longest
-	set wildignore+=*\\tmp\\*,*.swp,*.swo,*.zip,.git,.cabal-sandbox
-	set wildmode=longest,list,full
-	set wildmenu
-	set completeopt+=longest
+let g:haskellmode_completion_ghc = 1
+autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
+set clipboard=unnamedplus,autoselect
+set completeopt=menuone,menu,longest
+set wildignore+=*\\tmp\\*,*.swp,*.swo,*.zip,.git,.cabal-sandbox
+set wildmode=longest,list,full
+set wildmenu
+set completeopt+=longest
 
 " File and Window Management 
 inoremap <leader>w <Esc>:w<CR>
@@ -109,11 +104,11 @@ nnoremap <leader>s :split<CR>:w<CR>:Ex<CR>
 
 " Return to the same line you left off at
 augroup line_return
-	au!
-	au BufReadPost *
-		\ if line("'\"") > 0 && line("'\"") <= line("$") |
-		\	execute 'normal! g`"zvzz' |
-		\ endif
+au!
+au BufReadPost *
+	\ if line("'\"") > 0 && line("'\"") <= line("$") |
+	\	execute 'normal! g`"zvzz' |
+	\ endif
 augroup END
 
 " Auto load
@@ -125,7 +120,7 @@ set autoread
 " Notification after file change
 " https://vi.stackexchange.com/questions/13091/autocmd-event-for-autoread
 autocmd FileChangedShellPost *
-	\ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
+\ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
 
 " Search and replace word under cursor
 nnoremap  <C-s> <esc>:%s/<C-r><C-w>//gc<left><left><left>
