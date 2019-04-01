@@ -70,10 +70,6 @@ inoremap { {<CR>}<Esc>O<TAB>
 " Tabs
 so ~/dotfiles/vim/tabs.vim
 
-" Typescript
-autocmd BufNewFile,BufRead *.ts set syntax=javascript
-autocmd BufNewFile,BufRead *.tsx set syntax=javascript
-
 " Markup
 inoremap <leader>< <esc>I<<esc>A><esc>yypa/<esc>O<tab>
 
@@ -86,6 +82,10 @@ set wildignore+=*\\tmp\\*,*.swp,*.swo,*.zip,.git,.cabal-sandbox
 set wildmode=longest,list,full
 set wildmenu
 set completeopt+=longest
+
+" Typescript
+let g:tsuquyomi_disable_quickfix = 1
+let g:syntastic_typescript_checkers = ['tsuquyomi']
 
 " File and Window Management 
 inoremap <leader>w <Esc>:w<CR>
