@@ -61,9 +61,6 @@ set incsearch
 autocmd InsertEnter * set cul
 autocmd InsertLeave * set nocul
 
-" Brackets
-inoremap { {<CR>}<Esc>O<TAB>
-
 " Tabs
 so ~/dotfiles/vim/tabs.vim
 
@@ -84,7 +81,13 @@ set completeopt+=longest
 let g:tsuquyomi_disable_quickfix = 1
 let g:syntastic_typescript_checkers = ['tsuquyomi']
 
-" File and Window Management 
+" Scala
+autocmd BufWritePost *.scala silent :EnTypeCheck
+nnoremap <localleader>t :EnType<CR>
+let g:deoplete#omni#input_patterns = {}
+let g:deoplete#omni#input_patterns.scala = ['[^. *\t0-9]\.\w*',': [A-Z]\w', '[\[\t\( ][A-Za-z]\w*']
+
+"File and Window Management 
 inoremap <leader>w <Esc>:w<CR>
 nnoremap <leader>w :w<CR>
 
@@ -127,3 +130,6 @@ nnoremap  <C-s> <esc>:%s/<C-r><C-w>//gc<left><left><left>
 "nnoremap <S-TAB> <<
 "vnoremap <TAB> >gv
 "vnoremap <S-TAB> <gv
+
+
+

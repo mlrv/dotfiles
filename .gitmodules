@@ -52,3 +52,6 @@
 [submodule "vim/plugins/typescript-vim"]
 	path = vim/plugins/typescript-vim
 	url = https://github.com/leafgarland/typescript-vim.git
+[submodule "vim/plugins/auto-pairs"]
+	path = vim/plugins/auto-pairs
+	url = https://github.com/jiangmiao/auto-pairs
