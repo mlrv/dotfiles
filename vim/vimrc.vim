@@ -11,12 +11,15 @@ set noexpandtab
 set dir=/tmp/	
 set number
 set relativenumber 
-set hlsearch
-nnoremap <C-l> :nohl<CR><C-l>:echo "Search Cleared"<CR>
+
+" incsearch
+map /  <Plug>(incsearch-forward)
+map ?  <Plug>(incsearch-backward)
+map g/ <Plug>(incsearch-stay)
 
 " CtrlP
 set runtimepath^=~/.vim/bundle/ctrlp.vim
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
+let g:ctrlp_custom_ignore = 'target\|node_modules\|DS_Store\|git'
 
 " Syntastic
 map <Leader>s :SyntasticToggleMode<CR>
