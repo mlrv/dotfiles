@@ -134,5 +134,7 @@ nnoremap  <C-s> <esc>:%s/<C-r><C-w>//gc<left><left><left>
 "vnoremap <TAB> >gv
 "vnoremap <S-TAB> <gv
 
-
-
+" Quickfix highlight colour
+hi QuickFixLine term=reverse ctermbg=52
+hi SpellBad ctermbg=52
+hi SpellCap ctermbg=52
