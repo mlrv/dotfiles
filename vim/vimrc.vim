@@ -138,3 +138,13 @@ nnoremap  <C-s> <esc>:%s/<C-r><C-w>//gc<left><left><left>
 hi QuickFixLine term=reverse ctermbg=52
 hi SpellBad ctermbg=52
 hi SpellCap ctermbg=52
+
+" Gitgutter
+let g:gitgutter_sign_added = '.' 
+let g:gitgutter_sign_modified = '.' 
+let g:gitgutter_sign_removed = '.' 
+let g:gitgutter_sign_modified_removed = '.' 
+highlight GitGutterAdd ctermfg=green 
+highlight GitGutterChange ctermfg=yellow 
+highlight GitGutterDelete ctermfg=red 
+highlight GitGutterChangeDelete ctermfg=yellow
