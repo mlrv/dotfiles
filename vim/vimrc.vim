@@ -148,3 +148,9 @@ highlight GitGutterAdd ctermfg=green
 highlight GitGutterChange ctermfg=yellow 
 highlight GitGutterDelete ctermfg=red 
 highlight GitGutterChangeDelete ctermfg=yellow
+
+" Custom commands
+command! Q :q 
+command! W :w 
+command! Wq :wq 
+command! WQ :wq 
