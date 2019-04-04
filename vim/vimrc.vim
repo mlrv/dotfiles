@@ -60,9 +60,17 @@ set pastetoggle=<F2>
 set mouse=a
 set incsearch
 
-" Change cursor in Insert mode
-autocmd InsertEnter * set cul
-autocmd InsertLeave * set nocul
+" Cursor shape in different modes
+if has("autocmd")
+	au VimEnter,InsertLeave * silent execute '!echo -ne "\e[2 q"' | redraw!
+	au InsertEnter,InsertChange *
+		\ if v:insertmode == 'i' | 
+		\   silent execute '!echo -ne "\e[6 q"' | redraw! |
+		\ elseif v:insertmode == 'r' |
+		\   silent execute '!echo -ne "\e[4 q"' | redraw! |
+		\ endif
+	au VimLeave * silent execute '!echo -ne "\e[ q"' | redraw!
+endif
 
 " Tabs
 so ~/dotfiles/vim/tabs.vim
