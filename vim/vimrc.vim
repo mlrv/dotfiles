@@ -1,32 +1,41 @@
+" .vimrc
+" Author: mlrv
+" Source: https://github.com/mlrv/dotfiles/blob/master/vim/vimrc.vim
+
+" General Vim settings {{{
 execute pathogen#infect()
-
-" Theme
-colorscheme codedark
-
-" General Vim settings
 syntax on
+colorscheme codedark
 filetype plugin indent on
 let mapleader=","
 hi Vertsplit None
-set foldmethod=syntax
+set backspace=indent,eol,start " Make sure backspace works normnally
 set autoindent
+set incsearch
 set tabstop=2
 set shiftwidth=2
 set noexpandtab
 set dir=/tmp/	
 set number
-set relativenumber 
+set relativenumber
+set foldenable 
+set foldmethod=marker
+set foldmarker={{{,}}}
+set foldlevel=0
+set modelines=1
+" }}}
 
-" incsearch
-map /  <Plug>(incsearch-forward)
-map ?  <Plug>(incsearch-backward)
-map g/ <Plug>(incsearch-stay)
-
-" CtrlP
+" Plugins {{{
+" CtrlP {{{
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 let g:ctrlp_custom_ignore = 'target\|node_modules\|DS_Store\|git'
+" }}}
 
-" Syntastic
+" Deoplete {{{
+let g:deoplete#enable_at_startup = 1
+" }}}
+
+" Syntastic {{{
 map <Leader>s :SyntasticToggleMode<CR>
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
@@ -35,37 +44,64 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+" }}}
 
-" Deoplete
-let g:deoplete#enable_at_startup = 1
+" Gitgutter {{{
+let g:gitgutter_sign_added = '.' 
+let g:gitgutter_sign_modified = '.' 
+let g:gitgutter_sign_removed = '.' 
+let g:gitgutter_sign_modified_removed = '.' 
+highlight GitGutterAdd ctermfg=green 
+highlight GitGutterChange ctermfg=yellow 
+highlight GitGutterDelete ctermfg=red 
+highlight GitGutterChangeDelete ctermfg=yellow
+" }}}
 
-" Avoid using arrow keys
-map <up> <nop>
-map <down> <nop>
-map <left> <nop>
-map <right> <nop>
+" Nerdtree {{{
+silent! nmap <C-p> :NERDTreeToggle<CR> 
+silent! map <F2> :NERDTreeToggle<CR> 
+silent! map <F3> :NERDTreeFind<CR> 
+let g:NERDTreeToggle="<F2>"
+let g:NERDTreeMapActivateNode="<F3>"
+let NERDTreeAutoDeleteBuffer = 1
+let NERDTreeMinimalUI = 1
+let NERDTreeDirArrows = 1
+" }}}
 
-nmap <silent> <c-k> :wincmd k<CR>
-nmap <silent> <c-j> :wincmd j<CR>
-nmap <silent> <c-h> :wincmd h<CR>
-nmap <silent> <c-l> :wincmd l<CR>
+" }}}
 
-" Make sure backspace works normnally
-set backspace=indent,eol,start
+" Languages {{{
 
-nnoremap <Space> za
-nnoremap <leader>z zMzvzz
+" Language-specific tabs config
+so ~/dotfiles/vim/tabs.vim
 
-" Select whole row
-nnoremap vv 0v$
+" Haskell {{{
+let g:haskellmode_completion_ghc = 1
+autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
+set clipboard=unnamedplus,autoselect
+set completeopt=menuone,menu,longest
+set wildignore+=*\\tmp\\*,*.swp,*.swo,*.zip,.git,.cabal-sandbox
+set wildmode=longest,list,full
+set wildmenu
+set completeopt+=longest
+" }}}
 
-set listchars=tab:\|\ 
-nnoremap <leader><tab> :set list!<cr>
-set pastetoggle=<F2>
-set mouse=a
-set incsearch
+" Scala {{{
+autocmd BufWritePost *.scala silent :EnTypeCheck
+nnoremap <localleader>t :EnType<CR>
+let g:deoplete#omni#input_patterns = {}
+let g:deoplete#omni#input_patterns.scala = ['[^. *\t0-9]\.\w*',': [A-Z]\w', '[\[\t\( ][A-Za-z]\w*']
+" }}}
 
-" Cursor shape in different modes
+" Typescript {{{
+let g:tsuquyomi_disable_quickfix = 1
+let g:syntastic_typescript_checkers = ['tsuquyomi']
+" }}}
+
+" }}}
+
+" Cursor {{{
+" Set cursor shape for different modes
 if has("autocmd")
 	au VimEnter,InsertLeave * silent execute '!echo -ne "\e[2 q"' | redraw!
 	au InsertEnter,InsertChange *
@@ -76,47 +112,46 @@ if has("autocmd")
 		\ endif
 	au VimLeave * silent execute '!echo -ne "\e[ q"' | redraw!
 endif
+" }}}
 
-" Tabs
-so ~/dotfiles/vim/tabs.vim
+" Custom commands and bindings {{{
+"Fat fingers
+command! Q :q 
+command! W :w 
+command! Wq :wq 
+command! WQ :wq 
 
-" Markup
-inoremap <leader>< <esc>I<<esc>A><esc>yypa/<esc>O<tab>
+" Avoid using arrow keys
+map <up> <nop>
+map <down> <nop>
+map <left> <nop>
+map <right> <nop>
 
-" Haskell
-let g:haskellmode_completion_ghc = 1
-autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
-set clipboard=unnamedplus,autoselect
-set completeopt=menuone,menu,longest
-set wildignore+=*\\tmp\\*,*.swp,*.swo,*.zip,.git,.cabal-sandbox
-set wildmode=longest,list,full
-set wildmenu
-set completeopt+=longest
+" Select whole line (without indentation)
+nnoremap vv ^v$
 
-" Typescript
-let g:tsuquyomi_disable_quickfix = 1
-let g:syntastic_typescript_checkers = ['tsuquyomi']
+" Yank whole line to clipboard
+nnoremap <C-y> "*yy<CR>
 
-" Scala
-autocmd BufWritePost *.scala silent :EnTypeCheck
-nnoremap <localleader>t :EnType<CR>
-let g:deoplete#omni#input_patterns = {}
-let g:deoplete#omni#input_patterns.scala = ['[^. *\t0-9]\.\w*',': [A-Z]\w', '[\[\t\( ][A-Za-z]\w*']
+" Navigate splits
+nmap <silent> <c-k> :wincmd k<CR>
+nmap <silent> <c-j> :wincmd j<CR>
+nmap <silent> <c-h> :wincmd h<CR>
+nmap <silent> <c-l> :wincmd l<CR>
 
-"File and Window Management 
-inoremap <leader>w <Esc>:w<CR>
-nnoremap <leader>w :w<CR>
+" Search and replace word under cursor (with confirmation)
+nnoremap  <C-s> <esc>:%s/<C-r><C-w>//gc<left><left><left>
 
-inoremap <leader>q <ESC>:q<CR>
-nnoremap <leader>q :q<CR>
+" Folding
+nnoremap <Space> za
+nnoremap <leader>z zMzvzz
+" }}}
 
-inoremap <leader>x <ESC>:x<CR>
-nnoremap <leader>x :x<CR>
-
-nnoremap <leader>e :Ex<CR>
-nnoremap <leader>t :tabnew<CR>:Ex<CR>
-nnoremap <leader>v :vsplit<CR>:w<CR>:Ex<CR>
-nnoremap <leader>s :split<CR>:w<CR>:Ex<CR>
+" Generic {{{
+" Quickfix highlight colour
+hi QuickFixLine term=reverse ctermbg=52
+hi SpellBad ctermbg=52
+hi SpellCap ctermbg=52
 
 " Return to the same line you left off at
 augroup line_return
@@ -127,53 +162,24 @@ au BufReadPost *
 	\ endif
 augroup END
 
-" Auto load
 " Triger `autoread` when files changes on disk
-" https://unix.stackexchange.com/questions/149209/refresh-changed-content-of-file-opened-in-vim/383044#383044
-" https://vi.stackexchange.com/questions/13692/prevent-focusgained-autocmd-running-in-command-line-editing-mode
 autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * if mode() != 'c' | checktime | endif
 set autoread 
+
 " Notification after file change
-" https://vi.stackexchange.com/questions/13091/autocmd-event-for-autoread
 autocmd FileChangedShellPost *
 \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
 
-" Search and replace word under cursor
-nnoremap  <C-s> <esc>:%s/<C-r><C-w>//gc<left><left><left>
+" incsearch
+map /  <Plug>(incsearch-forward)
+map ?  <Plug>(incsearch-backward)
+map g/ <Plug>(incsearch-stay)
+" }}}
 
-" Indent (temporarily disable these until I find a better solution)
-"nnoremap <TAB> >>
-"nnoremap <S-TAB> <<
-"vnoremap <TAB> >gv
-"vnoremap <S-TAB> <gv
+"File and Window Management {{{
+nnoremap <leader>e :Ex<CR>
+nnoremap <leader>t :tabnew<CR>:Ex<CR>
+nnoremap <leader>v :vsplit<CR>:w<CR>:Ex<CR>
+nnoremap <leader>s :split<CR>:w<CR>:Ex<CR>
+" }}}
 
-" Quickfix highlight colour
-hi QuickFixLine term=reverse ctermbg=52
-hi SpellBad ctermbg=52
-hi SpellCap ctermbg=52
-
-" Gitgutter
-let g:gitgutter_sign_added = '.' 
-let g:gitgutter_sign_modified = '.' 
-let g:gitgutter_sign_removed = '.' 
-let g:gitgutter_sign_modified_removed = '.' 
-highlight GitGutterAdd ctermfg=green 
-highlight GitGutterChange ctermfg=yellow 
-highlight GitGutterDelete ctermfg=red 
-highlight GitGutterChangeDelete ctermfg=yellow
-
-" Custom commands
-command! Q :q 
-command! W :w 
-command! Wq :wq 
-command! WQ :wq 
-
-" Nerdtree
-silent! nmap <C-p> :NERDTreeToggle<CR> 
-silent! map <F2> :NERDTreeToggle<CR> 
-silent! map <F3> :NERDTreeFind<CR> 
-let g:NERDTreeToggle="<F2>"
-let g:NERDTreeMapActivateNode="<F3>"
-let NERDTreeAutoDeleteBuffer = 1
-let NERDTreeMinimalUI = 1
-let NERDTreeDirArrows = 1
