@@ -37,15 +37,10 @@ let g:ctrlp_custom_ignore = 'target\|node_modules\|DS_Store\|git'
 let g:deoplete#enable_at_startup = 1
 " }}}
 
-" Syntastic {{{
-map <Leader>s :SyntasticToggleMode<CR>
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+" Ale {{{
+let g:ale_open_list = 1
+let g:ale_set_loclist = 0
+let g:ale_set_quickfix = 1
 " }}}
 
 " Gitgutter {{{
@@ -97,7 +92,6 @@ let g:deoplete#omni#input_patterns.scala = ['[^. *\t0-9]\.\w*',': [A-Z]\w', '[\[
 
 " Typescript {{{
 let g:tsuquyomi_disable_quickfix = 1
-let g:syntastic_typescript_checkers = ['tsuquyomi']
 " }}}
 
 " }}}
@@ -176,12 +170,4 @@ autocmd FileChangedShellPost *
 map /  <Plug>(incsearch-forward)
 map ?  <Plug>(incsearch-backward)
 map g/ <Plug>(incsearch-stay)
-" }}}
-
-"File and Window Management {{{
-nnoremap <leader>e :Ex<CR>
-nnoremap <leader>t :tabnew<CR>:Ex<CR>
-nnoremap <leader>v :vsplit<CR>:w<CR>:Ex<CR>
-nnoremap <leader>s :split<CR>:w<CR>:Ex<CR>
-" }}}
 

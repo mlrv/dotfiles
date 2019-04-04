@@ -25,9 +25,6 @@
 [submodule "vim/plugins/neocomplete.vim"]
 	path = vim/plugins/neocomplete.vim
 	url = https://github.com/Shougo/neocomplete.vim.git
-[submodule "vim/plugins/syntastic"]
-	path = vim/plugins/syntastic
-	url = https://github.com/scrooloose/syntastic.git
 [submodule "vim/plugins/ack.vim"]
 	path = vim/plugins/ack.vim
 	url = https://github.com/mileszs/ack.vim.git
@@ -61,3 +58,12 @@
 [submodule "vim/plugins/vim-code-dark"]
 	path = vim/plugins/vim-code-dark
 	url = https://github.com/tomasiser/vim-code-dark
+[submodule "vim/plugins/vimproc.vim"]
+	path = vim/plugins/vimproc.vim
+	url = https://github.com/Shougo/vimproc.vim
+[submodule "vim/plugins/vim-qf"]
+	path = vim/plugins/vim-qf
+	url = https://github.com/romainl/vim-qf
+[submodule "vim/plugins/ale"]
+	path = vim/plugins/ale
+	url = https://github.com/w0rp/ale.git

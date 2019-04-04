@@ -38,3 +38,11 @@
 	}
 	zle -N add_sudo
 	bindkey "^s" add_sudo
+
+# vimrc
+	function open_vimrc() {
+		BUFFER="vim ~/dotfiles/vim/vimrc.vim"
+		zle accept-line
+	}
+	zle -N open_vimrc
+	bindkey "^v" open_vimrc
