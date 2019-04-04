@@ -165,3 +165,13 @@ command! Q :q
 command! W :w 
 command! Wq :wq 
 command! WQ :wq 
+
+" Nerdtree
+silent! nmap <C-p> :NERDTreeToggle<CR> 
+silent! map <F2> :NERDTreeToggle<CR> 
+silent! map <F3> :NERDTreeFind<CR> 
+let g:NERDTreeToggle="<F2>" 
+let g:NERDTreeMapActivateNode="<F3>" 
+let NERDTreeAutoDeleteBuffer = 1 
+let NERDTreeMinimalUI = 1 
+let NERDTreeDirArrows = 1 
