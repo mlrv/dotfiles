@@ -7,6 +7,8 @@ colorscheme codedark
 syntax on
 filetype plugin indent on
 let mapleader=","
+hi Vertsplit None
+set foldmethod=syntax
 set autoindent
 set tabstop=2
 set shiftwidth=2
@@ -170,8 +172,8 @@ command! WQ :wq
 silent! nmap <C-p> :NERDTreeToggle<CR> 
 silent! map <F2> :NERDTreeToggle<CR> 
 silent! map <F3> :NERDTreeFind<CR> 
-let g:NERDTreeToggle="<F2>" 
-let g:NERDTreeMapActivateNode="<F3>" 
-let NERDTreeAutoDeleteBuffer = 1 
-let NERDTreeMinimalUI = 1 
-let NERDTreeDirArrows = 1 
+let g:NERDTreeToggle="<F2>"
+let g:NERDTreeMapActivateNode="<F3>"
+let NERDTreeAutoDeleteBuffer = 1
+let NERDTreeMinimalUI = 1
+let NERDTreeDirArrows = 1
