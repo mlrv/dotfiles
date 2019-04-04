@@ -1,5 +1,8 @@
 execute pathogen#infect()
 
+" Theme
+colorscheme codedark
+
 " General Vim settings
 syntax on
 filetype plugin indent on

@@ -61,3 +61,6 @@
 [submodule "vim/plugins/nerdtree"]
 	path = vim/plugins/nerdtree
 	url = https://github.com/scrooloose/nerdtree
+[submodule "vim/plugins/vim-code-dark"]
+	path = vim/plugins/vim-code-dark
+	url = https://github.com/tomasiser/vim-code-dark
