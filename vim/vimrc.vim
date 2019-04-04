@@ -11,6 +11,8 @@ let mapleader=","
 hi Vertsplit None
 set backspace=indent,eol,start " Make sure backspace works normnally
 set autoindent
+set ignorecase
+set smartcase
 set incsearch
 set tabstop=2
 set shiftwidth=2
