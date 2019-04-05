@@ -74,6 +74,11 @@ set rtp+=~/.fzf
 nnoremap <C-p> :Files .<CR>
 " }}}
 
+" Tagbar {{{
+nmap <F8> :TagbarToggle<CR>
+set tags=./tags;,tags;
+" }}}
+
 " }}}
 
 " Languages {{{
