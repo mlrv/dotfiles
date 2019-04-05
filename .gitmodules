@@ -10,9 +10,6 @@
 [submodule "vim/plugins/vim-gitgutter"]
 	path = vim/plugins/vim-gitgutter
 	url = https://github.com/airblade/vim-gitgutter
-[submodule "vim/plugins/ctrlp.vim"]
-	path = vim/plugins/ctrlp.vim
-	url = https://github.com/ctrlpvim/ctrlp.vim.git
 [submodule "vim/plugins/haskell-vim"]
 	path = vim/plugins/haskell-vim
 	url = https://github.com/neovimhaskell/haskell-vim.git
@@ -67,3 +64,6 @@
 [submodule "vim/plugins/ale"]
 	path = vim/plugins/ale
 	url = https://github.com/w0rp/ale.git
+[submodule "vim/plugins/vim-fugitive"]
+	path = vim/plugins/vim-fugitive
+	url = https://github.com/tpope/vim-fugitive.git

@@ -11,6 +11,7 @@ let mapleader=","
 hi Vertsplit None
 set backspace=indent,eol,start " Make sure backspace works normnally
 set autoindent
+set hlsearch
 set ignorecase
 set smartcase
 set incsearch
@@ -28,9 +29,9 @@ set modelines=1
 " }}}
 
 " Plugins {{{
-" CtrlP {{{
-set runtimepath^=~/.vim/bundle/ctrlp.vim
-let g:ctrlp_custom_ignore = 'target\|node_modules\|DS_Store\|git'
+
+" Fugitive {{{
+nnoremap <leader>g <esc>:Gdiff<CR>
 " }}}
 
 " Deoplete {{{
@@ -42,6 +43,10 @@ let g:ale_open_list = 1
 let g:ale_set_loclist = 0
 let g:ale_set_quickfix = 1
 " }}}
+
+" qf {{{
+ nmap <F5> <Plug>(qf_qf_toggle)
+ " }}}
 
 " Gitgutter {{{
 let g:gitgutter_sign_added = '.' 
@@ -55,7 +60,6 @@ highlight GitGutterChangeDelete ctermfg=yellow
 " }}}
 
 " Nerdtree {{{
-silent! nmap <C-p> :NERDTreeToggle<CR> 
 silent! map <F2> :NERDTreeToggle<CR> 
 silent! map <F3> :NERDTreeFind<CR> 
 let g:NERDTreeToggle="<F2>"
@@ -63,6 +67,11 @@ let g:NERDTreeMapActivateNode="<F3>"
 let NERDTreeAutoDeleteBuffer = 1
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
+" }}}
+
+" fzf {{{
+set rtp+=~/.fzf
+nnoremap <C-p> :Files .<CR>
 " }}}
 
 " }}}
@@ -136,11 +145,27 @@ nmap <silent> <c-h> :wincmd h<CR>
 nmap <silent> <c-l> :wincmd l<CR>
 
 " Search and replace word under cursor (with confirmation)
-nnoremap  <C-s> <esc>:%s/<C-r><C-w>//gc<left><left><left>
+nnoremap  <leader>s <esc>:%s/<C-r><C-w>//gc<left><left><left>
 
 " Folding
 nnoremap <Space> za
 nnoremap <leader>z zMzvzz
+
+" Generic
+nnoremap ; :
+noremap <leader><space> :noh<CR>
+map <tab> %
+nnoremap D d$
+nnoremap S i<CR><esc>
+nnoremap n nzzzv
+nnoremap N Nzzzv
+noremap H ^
+noremap L g_
+inoremap <C-a> <esc>I
+inoremap <C-e> <esc>A
+cnoremap <C-a> <home>
+cnoremap <C-e> <end>
+
 " }}}
 
 " Generic {{{
@@ -170,4 +195,5 @@ autocmd FileChangedShellPost *
 map /  <Plug>(incsearch-forward)
 map ?  <Plug>(incsearch-backward)
 map g/ <Plug>(incsearch-stay)
+" }}}
 
