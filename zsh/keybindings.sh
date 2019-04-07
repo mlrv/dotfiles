@@ -15,14 +15,6 @@
 	zle -N goto_home
 	bindkey "^h" goto_home
 
-# Edit and rerun
-	function edit_and_run() {
-		BUFFER="fc"
-		zle accept-line
-	}
-	zle -N edit_and_run
-	bindkey "^v" edit_and_run
-
 # LS
 	function ctrl_l() {
 		BUFFER="ls"
@@ -46,3 +38,19 @@
 	}
 	zle -N open_vimrc
 	bindkey "^v" open_vimrc
+
+# vim
+	function open_vim() {
+		BUFFER="vim"
+		zle accept-line
+	}
+	zle -N open_vim
+	bindkey "^b" open_vim
+
+	# chrome
+	function open_chrome() {
+		BUFFER="google-chrome"
+		zle accept-line
+	}
+	zle -N open_chrome
+	bindkey "^z" open_chrome
