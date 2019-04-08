@@ -4,8 +4,10 @@
 
 " General Vim settings {{{
 execute pathogen#infect()
-syntax on
-colorscheme codedark
+syntax enable
+set background=dark
+let g:solarized_termtrans = 1
+colorscheme solarized8_high
 filetype plugin indent on
 let mapleader=","
 hi Vertsplit None
