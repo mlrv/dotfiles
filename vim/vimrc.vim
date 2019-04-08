@@ -129,7 +129,7 @@ let g:tagbar_type_haskell = {
 " }}}
 
 " Goyo {{{
-nnoremap <leader>g :Goyo<CR>
+nnoremap <c-g> :Goyo<CR>
 " }}}
 
 " }}}
