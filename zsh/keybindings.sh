@@ -31,21 +31,13 @@
 	zle -N add_sudo
 	bindkey "^s" add_sudo
 
-# vimrc
-	function open_vimrc() {
-		BUFFER="vim ~/dotfiles/vim/vimrc.vim"
-		zle accept-line
-	}
-	zle -N open_vimrc
-	bindkey "^v" open_vimrc
-
 # vim
 	function open_vim() {
 		BUFFER="vim"
 		zle accept-line
 	}
 	zle -N open_vim
-	bindkey "^b" open_vim
+	bindkey "^v" open_vim
 
 	# chrome
 	function open_chrome() {

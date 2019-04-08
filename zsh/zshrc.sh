@@ -8,6 +8,7 @@
 
 # Aliases
 	alias c="clear"
+	alias n="npm run start"
 	alias gcm="git checkout master"
 	alias gpm="git pull origin master"
 	alias gc="git commit -a"
