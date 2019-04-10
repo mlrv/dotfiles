@@ -153,7 +153,7 @@ set completeopt+=longest
 
 " Scala {{{
 autocmd BufWritePost *.scala silent :EnTypeCheck
-nnoremap <localleader>t :EnType<CR>
+nnoremap <leader>t :EnType<CR>
 let g:deoplete#omni#input_patterns = {}
 let g:deoplete#omni#input_patterns.scala = ['[^. *\t0-9]\.\w*',': [A-Z]\w', '[\[\t\( ][A-Za-z]\w*']
 " }}}
