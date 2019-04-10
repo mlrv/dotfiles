@@ -73,3 +73,6 @@
 [submodule "vim/plugins/goyo.vim"]
 	path = vim/plugins/goyo.vim
 	url = https://github.com/junegunn/goyo.vim
+[submodule "vim/plugins/vim-maximizer"]
+	path = vim/plugins/vim-maximizer
+	url = https://github.com/szw/vim-maximizer
