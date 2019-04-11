@@ -194,9 +194,6 @@ map <right> <nop>
 " Select whole line (without indentation)
 nnoremap vv ^v$
 
-" Yank whole line to clipboard
-nnoremap <C-y> "*yy<CR>
-
 " Navigate splits
 nmap <silent> <c-k> :wincmd k<CR>
 nmap <silent> <c-j> :wincmd j<CR>
