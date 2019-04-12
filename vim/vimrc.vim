@@ -72,7 +72,7 @@ let NERDTreeDirArrows = 1
 
 " fzf {{{
 set rtp+=~/.fzf
-nnoremap <C-p> :Files .<CR>
+nnoremap <C-p> :GFiles .<CR>
 " }}}
 
 " Tagbar {{{
