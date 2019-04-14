@@ -76,6 +76,6 @@
 [submodule "vim/plugins/vim-maximizer"]
 	path = vim/plugins/vim-maximizer
 	url = https://github.com/szw/vim-maximizer
-[submodule "vim/plugins/vim-haskellConceal"]
-	path = vim/plugins/vim-haskellConceal
-	url = https://github.com/Twinside/vim-haskellConceal
+[submodule "vim/plugins/--force"]
+	path = vim/plugins/--force
+	url = https://github.com/ryanoasis/vim-devicons

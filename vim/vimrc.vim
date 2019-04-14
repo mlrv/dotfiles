@@ -136,9 +136,8 @@ nnoremap <c-g> :Goyo<CR>
 " }}}
 
 " Languages {{{
-
-" Language-specific tabs config
 so ~/dotfiles/vim/tabs.vim
+set runtimepath+=~/.vim/bundle/LanguageClient-neovim
 
 " Haskell {{{
 let g:haskellmode_completion_ghc = 1
@@ -252,4 +251,3 @@ map /  <Plug>(incsearch-forward)
 map ?  <Plug>(incsearch-backward)
 map g/ <Plug>(incsearch-stay)
 " }}}
-
