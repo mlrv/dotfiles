@@ -71,5 +71,8 @@ if [[ "${terminfo[kcud1]}" != "" ]]; then
 	bindkey "${terminfo[kcud1]}" down-line-or-beginning-search
 fi
 
+source $HOME/.nix-profile/etc/profile.d/nix.sh
+export NIX_PATH="nixpkgs=$HOME/.nix-defexpr/channels/nixos-19.03"
+
 source ~/dotfiles/zsh/prompt.sh
 export PATH=$PATH:$HOME/dotfiles/utils

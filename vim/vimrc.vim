@@ -43,6 +43,7 @@ let g:deoplete#enable_at_startup = 1
 " Ale {{{
 let g:ale_set_loclist = 0
 let g:ale_set_quickfix = 1
+let g:ale_sign_column_always = 1
 " }}}
 
 " qf {{{
@@ -137,7 +138,6 @@ nnoremap <c-g> :Goyo<CR>
 
 " Languages {{{
 so ~/dotfiles/vim/tabs.vim
-set runtimepath+=~/.vim/bundle/LanguageClient-neovim
 
 " Haskell {{{
 let g:haskellmode_completion_ghc = 1
@@ -161,20 +161,6 @@ let g:deoplete#omni#input_patterns.scala = ['[^. *\t0-9]\.\w*',': [A-Z]\w', '[\[
 let g:tsuquyomi_disable_quickfix = 1
 " }}}
 
-" }}}
-
-" Cursor {{{
-" Set cursor shape for different modes
-if has("autocmd")
-	au VimEnter,InsertLeave * silent execute '!echo -ne "\e[2 q"' | redraw!
-	au InsertEnter,InsertChange *
-		\ if v:insertmode == 'i' |
-		\   silent execute '!echo -ne "\e[6 q"' | redraw! |
-		\ elseif v:insertmode == 'r' |
-		\   silent execute '!echo -ne "\e[4 q"' | redraw! |
-		\ endif
-	au VimLeave * silent execute '!echo -ne "\e[ q"' | redraw!
-endif
 " }}}
 
 " Custom commands and bindings {{{
