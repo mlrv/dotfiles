@@ -159,6 +159,7 @@ let g:deoplete#omni#input_patterns.scala = ['[^. *\t0-9]\.\w*',': [A-Z]\w', '[\[
 
 " Typescript {{{
 let g:tsuquyomi_disable_quickfix = 1
+let g:tsuquyomi_completion_detail = 1
 " }}}
 
 " }}}
