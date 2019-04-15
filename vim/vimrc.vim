@@ -28,6 +28,7 @@ set foldmethod=marker
 set foldmarker={{{,}}}
 set foldlevel=0
 set modelines=1
+set showbreak=↪
 " }}}
 
 " Plugins {{{
