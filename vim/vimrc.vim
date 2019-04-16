@@ -244,3 +244,16 @@ map /  <Plug>(incsearch-forward)
 map ?  <Plug>(incsearch-backward)
 map g/ <Plug>(incsearch-stay)
 " }}}
+
+" {{{ Highlight
+" Show all highlight groups
+nmap <leader>o :so $VIMRUNTIME/syntax/hitest.vim<CR>
+" Show highlight group of word under cursor
+nmap <leader>p :call <SID>SynStack()<CR>
+function! <SID>SynStack()
+  if !exists("*synstack")
+    return
+  endif
+  echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
+endfunc
+" }}}
