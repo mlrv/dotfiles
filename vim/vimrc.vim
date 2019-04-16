@@ -166,7 +166,11 @@ let g:tsuquyomi_completion_detail = 1
 " }}}
 
 " Custom commands and bindings {{{
-"Fat fingers
+
+" Paste from system clipboard
+set pastetoggle=<leader>v
+
+" Fat fingers
 command! Q :q
 command! W :w
 command! Wq :wq
