@@ -12,6 +12,7 @@
 	alias gcm="git checkout master"
 	alias gpm="git pull origin master"
 	alias gc="git commit"
+	alias cdd="cd /media/Data"
 	mkdir -p /tmp/log
 	
 # Settings
