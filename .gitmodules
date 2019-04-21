@@ -88,3 +88,6 @@
 [submodule "vim/plugins/LanguageClient-neovim"]
 	path = vim/plugins/LanguageClient-neovim
 	url = https://github.com/autozimu/LanguageClient-neovim
+[submodule "vim/plugins/vim-markdown"]
+	path = vim/plugins/vim-markdown
+	url = https://github.com/plasticboy/vim-markdown.git
