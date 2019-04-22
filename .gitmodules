@@ -91,3 +91,6 @@
 [submodule "vim/plugins/vim-markdown"]
 	path = vim/plugins/vim-markdown
 	url = https://github.com/plasticboy/vim-markdown.git
+[submodule "vim/plugins/nerdcommenter"]
+	path = vim/plugins/nerdcommenter
+	url = https://github.com/scrooloose/nerdcommenter
