@@ -94,3 +94,6 @@
 [submodule "vim/plugins/nerdcommenter"]
 	path = vim/plugins/nerdcommenter
 	url = https://github.com/scrooloose/nerdcommenter
+[submodule "vim/plugins/vim-livedown"]
+	path = vim/plugins/vim-livedown
+	url = git://github.com/shime/vim-livedown.git

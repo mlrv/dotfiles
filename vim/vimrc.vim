@@ -136,6 +136,11 @@ let g:tagbar_type_haskell = {
 nnoremap <c-g> :Goyo<CR>
 " }}}
 
+" markdown {{{ 
+let g:vim_markdown_folding_disabled = 1
+nmap <leader>m :LivedownToggle<CR>
+" }}}
+
 " }}}
 
 " Languages {{{
