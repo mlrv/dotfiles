@@ -66,11 +66,12 @@ highlight GitGutterChangeDelete ctermfg=yellow
 " Nerdtree {{{
 silent! map <F2> :NERDTreeToggle<CR>
 silent! map <F3> :NERDTreeFind<CR>
-let g:NERDTreeToggle="<F2>"
-let g:NERDTreeMapActivateNode="<space>"
+let g:NERDTreeToggle = "<F2>"
+let g:NERDTreeMapActivateNode = "<space>"
 let NERDTreeAutoDeleteBuffer = 1
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
+let NERDTreeShowHidden = 1
 " }}}
 
 " fzf {{{
