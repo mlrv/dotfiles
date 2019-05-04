@@ -13,9 +13,6 @@
 [submodule "vim/plugins/haskell-vim"]
 	path = vim/plugins/haskell-vim
 	url = https://github.com/neovimhaskell/haskell-vim.git
-[submodule "vim/plugins/ghcmod-vim"]
-	path = vim/plugins/ghcmod-vim
-	url = https://github.com/eagletmt/ghcmod-vim.git
 [submodule "vim/plugins/neco-ghc"]
 	path = vim/plugins/neco-ghc
 	url = https://github.com/eagletmt/neco-ghc
