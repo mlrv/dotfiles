@@ -11,7 +11,7 @@ colorscheme solarized8_high
 filetype plugin indent on
 let mapleader=","
 hi Vertsplit None
-set backspace=indent,eol,start " Make sure backspace works normnally
+set backspace=indent,eol,start " Make sure backspace works normally
 set autoindent
 set hlsearch
 set ignorecase
