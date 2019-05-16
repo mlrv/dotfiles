@@ -167,6 +167,7 @@ set wildmenu
 set completeopt+=longest
 set runtimepath+=~/.vim/bundle/LanguageClient-neovim
 let g:LanguageClient_serverCommands = { 'haskell': ['hie-wrapper']  }
+let g:LanguageClient_rootMarkers = ['*.cabal', 'stack.yaml']
 " }}}
 
 " Scala {{{
