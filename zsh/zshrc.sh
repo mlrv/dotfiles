@@ -13,6 +13,7 @@
 	alias gpm="git pull origin master"
 	alias gc="git commit"
 	alias cdd="cd /media/Data"
+	alias gll="git log --all --decorate --oneline --graph"
 	mkdir -p /tmp/log
 	
 # Settings
