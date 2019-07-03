@@ -14,6 +14,7 @@
 	alias gc="git commit"
 	alias cdd="cd /media/Data"
 	alias gll="git log --all --decorate --oneline --graph"
+	alias dockerkill="stop $(docker ps -a -q)"
 	mkdir -p /tmp/log
 	
 # Settings
