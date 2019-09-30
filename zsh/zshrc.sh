@@ -15,10 +15,12 @@
 	alias cdd="cd /media/Data"
 	alias gll="git log --all --decorate --oneline --graph"
 	alias dockerkill="stop $(docker ps -a -q)"
+	function gtg() { git log --pretty=oneline $1...$2 }  #Difference between two git tags
+	alias gpp="git push origin HEAD"
 	mkdir -p /tmp/log
 	
 # Settings
-	export VISUAL=vim
+export VISUAL=vim
 
 source ~/dotfiles/zsh/plugins/fixls.zsh
 
@@ -37,7 +39,7 @@ source ~/dotfiles/zsh/plugins/fixls.zsh
 	}
 
 # For vim mappings: 
-	stty -ixon
+stty -ixon
 
 # Completions
 autoload -U compinit
@@ -79,6 +81,8 @@ export NIX_PATH="nixpkgs=$HOME/.nix-defexpr/channels/nixos-19.03"
 
 source ~/dotfiles/zsh/prompt.sh
 export PATH=$PATH:$HOME/dotfiles/utils
+export GITHUB_TOKEN=bf8d3ed9ff1545668a234959b5ff62304f72773f
+export NPM_TOKEN=a822f2b7-0929-436e-a754-f2a3d4777e2d
 
 # Unalias unwanted aliases
 unalias ls
