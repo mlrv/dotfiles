@@ -81,8 +81,6 @@ export NIX_PATH="nixpkgs=$HOME/.nix-defexpr/channels/nixos-19.03"
 
 source ~/dotfiles/zsh/prompt.sh
 export PATH=$PATH:$HOME/dotfiles/utils
-export GITHUB_TOKEN=bf8d3ed9ff1545668a234959b5ff62304f72773f
-export NPM_TOKEN=a822f2b7-0929-436e-a754-f2a3d4777e2d
 
 # Unalias unwanted aliases
 unalias ls
