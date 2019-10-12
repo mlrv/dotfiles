@@ -159,7 +159,6 @@ so ~/dotfiles/vim/tabs.vim
 " Haskell {{{
 let g:haskellmode_completion_ghc = 1
 autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
-set clipboard=unnamedplus,autoselect
 set completeopt=menuone,menu,longest
 set wildignore+=*\\tmp\\*,*.swp,*.swo,*.zip,.git,.cabal-sandbox
 set wildmode=longest,list,full
