@@ -9,13 +9,14 @@
 # Aliases
 	alias c="clear"
 	alias n="npm run start"
+	alias nn="npm run test"
 	alias gcm="git checkout master"
 	alias gpm="git pull origin master"
 	alias gc="git commit"
-	alias cdd="cd /media/Data"
 	alias gll="git log --all --decorate --oneline --graph"
 	alias dockerkill="stop $(docker ps -a -q)"
 	function gtg() { git log --pretty=oneline $1...$2 }  #Difference between two git tags
+	function gcb() { git checkout -b $1 }
 	alias gpp="git push origin HEAD"
 	mkdir -p /tmp/log
 	
