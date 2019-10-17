@@ -78,7 +78,7 @@ let NERDTreeShowHidden = 1
 
 " fzf {{{
 set rtp+=~/.fzf
-nnoremap <C-p> :Files .<CR>
+nnoremap <Leader>q :Files .<CR>
 " }}}
 
 " Tagbar {{{
@@ -145,8 +145,8 @@ nmap <leader>m :LivedownToggle<CR>
 " }}}
 
 " LanguageClient {{{
-map <Leader>q :call LanguageClient#textDocument_hover()<CR>
-map <Leader>w :call LanguageClient#textDocument_definition()<CR>
+map gh :call LanguageClient#textDocument_hover()<CR>
+map gd :call LanguageClient#textDocument_definition()<CR>
 map <Leader>e :call LanguageClient#textDocument_rename()<CR>
 map <Leader>r :call LanguageClient#textDocument_formatting()<CR>
 " }}}
