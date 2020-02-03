@@ -35,7 +35,6 @@ set showbreak=↪
 
 " Fugitive {{{
 nnoremap <leader>g <esc>:Gdiff<CR>
-set diffopt+=vertical
 " }}}
 
 " Deoplete {{{
