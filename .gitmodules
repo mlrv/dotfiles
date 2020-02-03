@@ -76,9 +76,6 @@
 [submodule "vim/plugins/--force"]
 	path = vim/plugins/--force
 	url = https://github.com/ryanoasis/vim-devicons
-[submodule "vim/plugins/ensime-vim"]
-	path = vim/plugins/ensime-vim
-	url = https://github.com/ensime/ensime-vim
 [submodule "vim/plugins/fzf.vim"]
 	path = vim/plugins/fzf.vim
 	url = https://github.com/junegunn/fzf.vim
