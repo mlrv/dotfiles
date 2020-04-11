@@ -37,10 +37,6 @@ set showbreak=↪
 nnoremap <leader>g <esc>:Gdiff<CR>
 " }}}
 
-" Deoplete {{{
-let g:deoplete#enable_at_startup = 1
-" }}}
-
 " Ale {{{
 let g:ale_set_loclist = 0
 let g:ale_set_quickfix = 1
@@ -80,67 +76,8 @@ set rtp+=~/.fzf
 nnoremap <Leader>q :Files .<CR>
 " }}}
 
-" Tagbar {{{
-nmap <F8> :TagbarToggle<CR>
-set tags=./tags;,tags;
-let g:tagbar_type_typescript = {
-  \ 'ctagsbin' : 'tstags',
-  \ 'ctagsargs' : '-f-',
-	\ 'kinds': [
-    \ 'e:enums:0:1',
-    \ 'f:function:0:1',
-    \ 't:typealias:0:1',
-    \ 'M:Module:0:1',
-    \ 'I:import:0:1',
-    \ 'i:interface:0:1',
-    \ 'C:class:0:1',
-    \ 'm:method:0:1',
-    \ 'p:property:0:1',
-    \ 'v:variable:0:1',
-    \ 'c:const:0:1',
-  \ ],
-  \ 'sort' : 0
-	\ }
-let g:tagbar_type_haskell = {
-    \ 'ctagsbin'  : 'hasktags',
-    \ 'ctagsargs' : '-x -c -o-',
-		\ 'kinds'     : [
-        \  'm:modules:0:1',
-        \  'd:data: 0:1',
-        \  'd_gadt: data gadt:0:1',
-        \  't:type names:0:1',
-        \  'nt:new types:0:1',
-        \  'c:classes:0:1',
-        \  'cons:constructors:1:1',
-        \  'c_gadt:constructor gadt:1:1',
-        \  'c_a:constructor accessors:1:1',
-        \  'ft:function types:1:1',
-        \  'fi:function implementations:0:1',
-        \  'o:others:0:1'
-    \ ],
-    \ 'sro'        : '.',
-		\ 'kind2scope' : {
-        \ 'm' : 'module',
-        \ 'c' : 'class',
-        \ 'd' : 'data',
-        \ 't' : 'type'
-    \ },
-			\ 'scope2kind' : {
-        \ 'module' : 'm',
-        \ 'class'  : 'c',
-        \ 'data'   : 'd',
-        \ 'type'   : 't'
-    \ }
-			\ }
-" }}}
-
 " Goyo {{{
 nnoremap <c-g> :Goyo<CR>
-" }}}
-
-" markdown {{{ 
-let g:vim_markdown_folding_disabled = 1
-nmap <leader>m :LivedownToggle<CR>
 " }}}
 
 " LanguageClient {{{
@@ -166,18 +103,6 @@ set completeopt+=longest
 set runtimepath+=~/.vim/bundle/LanguageClient-neovim
 let g:LanguageClient_serverCommands = { 'haskell': ['hie-wrapper']  }
 let g:LanguageClient_rootMarkers = ['*.cabal', 'stack.yaml']
-" }}}
-
-" Scala {{{
-autocmd BufWritePost *.scala silent :EnTypeCheck
-nnoremap <leader>t :EnType<CR>
-let g:deoplete#omni#input_patterns = {}
-let g:deoplete#omni#input_patterns.scala = ['[^. *\t0-9]\.\w*',': [A-Z]\w', '[\[\t\( ][A-Za-z]\w*']
-" }}}
-
-" Typescript {{{
-let g:tsuquyomi_disable_quickfix = 1
-let g:tsuquyomi_completion_detail = 1
 " }}}
 
 " }}}
@@ -261,15 +186,3 @@ map ?  <Plug>(incsearch-backward)
 map g/ <Plug>(incsearch-stay)
 " }}}
 
-" {{{ Highlight
-" Show all highlight groups
-nmap <leader>o :so $VIMRUNTIME/syntax/hitest.vim<CR>
-" Show highlight group of word under cursor
-nmap <leader>p :call <SID>SynStack()<CR>
-function! <SID>SynStack()
-  if !exists("*synstack")
-    return
-  endif
-  echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
-endfunc
-" }}}
