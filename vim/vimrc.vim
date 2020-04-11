@@ -81,6 +81,7 @@ nnoremap <c-g> :Goyo<CR>
 " }}}
 
 " LanguageClient {{{
+"set runtimepath+=~/.vim-plugins/LanguageClient-neovim
 map gh :call LanguageClient#textDocument_hover()<CR>
 map gd :call LanguageClient#textDocument_definition()<CR>
 map <Leader>e :call LanguageClient#textDocument_rename()<CR>
@@ -93,14 +94,14 @@ map <Leader>r :call LanguageClient#textDocument_formatting()<CR>
 so ~/dotfiles/vim/tabs.vim
 
 " Haskell {{{
-let g:haskellmode_completion_ghc = 1
-autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
+"let g:haskellmode_completion_ghc = 1
+"autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
 set completeopt=menuone,menu,longest
 set wildignore+=*\\tmp\\*,*.swp,*.swo,*.zip,.git,.cabal-sandbox
 set wildmode=longest,list,full
 set wildmenu
 set completeopt+=longest
-set runtimepath+=~/.vim/bundle/LanguageClient-neovim
+"set runtimepath+=~/.vim/bundle/LanguageClient-neovim
 let g:LanguageClient_serverCommands = { 'haskell': ['hie-wrapper']  }
 let g:LanguageClient_rootMarkers = ['*.cabal', 'stack.yaml']
 " }}}
