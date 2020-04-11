@@ -37,13 +37,6 @@ set showbreak=↪
 nnoremap <leader>g <esc>:Gdiff<CR>
 " }}}
 
-" Ale {{{
-let g:ale_set_loclist = 0
-let g:ale_set_quickfix = 1
-let g:ale_sign_column_always = 1
-highlight ALEWarning ctermbg=none
-" }}}
-
 " qf {{{
  nmap <F5> <Plug>(qf_qf_toggle)
  autocmd FileType qf setlocal wrap
@@ -80,30 +73,38 @@ nnoremap <Leader>q :Files .<CR>
 nnoremap <c-g> :Goyo<CR>
 " }}}
 
-" LanguageClient {{{
-"set runtimepath+=~/.vim-plugins/LanguageClient-neovim
-map gh :call LanguageClient#textDocument_hover()<CR>
-map gd :call LanguageClient#textDocument_definition()<CR>
-map <Leader>e :call LanguageClient#textDocument_rename()<CR>
-map <Leader>r :call LanguageClient#textDocument_formatting()<CR>
-" }}}
+" CoC {{{
+set hidden
+set nobackup
+set nowritebackup
+set cmdheight=2
+set updatetime=300
+set shortmess+=c
+set signcolumn=yes
 
-" }}}
+" Use tab for completion
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
-" Languages {{{
-so ~/dotfiles/vim/tabs.vim
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
 
-" Haskell {{{
-"let g:haskellmode_completion_ghc = 1
-"autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
-set completeopt=menuone,menu,longest
-set wildignore+=*\\tmp\\*,*.swp,*.swo,*.zip,.git,.cabal-sandbox
-set wildmode=longest,list,full
-set wildmenu
-set completeopt+=longest
-"set runtimepath+=~/.vim/bundle/LanguageClient-neovim
-let g:LanguageClient_serverCommands = { 'haskell': ['hie-wrapper']  }
-let g:LanguageClient_rootMarkers = ['*.cabal', 'stack.yaml']
+" Use K to show documentation in preview window.
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
 " }}}
 
 " }}}
