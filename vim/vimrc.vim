@@ -6,8 +6,8 @@
 execute pathogen#infect()
 syntax enable
 set background=dark
-let g:solarized_termtrans = 1
-colorscheme solarized8_high
+"let g:solarized_termtrans = 1
+"colorscheme solarized8_high
 filetype plugin indent on
 let mapleader=","
 hi Vertsplit None
@@ -65,7 +65,7 @@ let NERDTreeShowHidden = 1
 " }}}
 
 " fzf {{{
-set rtp+=~/.fzf
+set rtp+=/usr/local/opt/fzf
 nnoremap <Leader>q :Files .<CR>
 " }}}
 
