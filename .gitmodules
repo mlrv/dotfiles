@@ -39,7 +39,7 @@
 	url = https://github.com/Quramy/tsuquyomi
 [submodule "vim/plugins/typescript-vim"]
 	path = vim/plugins/typescript-vim
-	url = https://github.com/leafgarland/typescript-vim.git
+	url = git@github.com:leafgarland/typescript-vim.git
 [submodule "vim/plugins/auto-pairs"]
 	path = vim/plugins/auto-pairs
 	url = https://github.com/jiangmiao/auto-pairs
@@ -73,9 +73,6 @@
 [submodule "vim/plugins/vim-maximizer"]
 	path = vim/plugins/vim-maximizer
 	url = https://github.com/szw/vim-maximizer
-[submodule "vim/plugins/--force"]
-	path = vim/plugins/--force
-	url = https://github.com/ryanoasis/vim-devicons
 [submodule "vim/plugins/fzf.vim"]
 	path = vim/plugins/fzf.vim
 	url = https://github.com/junegunn/fzf.vim
