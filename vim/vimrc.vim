@@ -83,8 +83,10 @@ set signcolumn=yes
 
 " GoTo code navigation.
 nmap <silent> gd <Plug>(coc-definition)
-" Type under cursr
+" Type under cursor
 nnoremap <silent> gh :call <SID>show_documentation()<CR>
+" Show all diagnostics
+nnoremap <silent> <leader>a :<C-u>CocList diagnostics<cr>
 
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
