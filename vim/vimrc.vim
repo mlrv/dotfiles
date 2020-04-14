@@ -54,12 +54,15 @@ highlight GitGutterChangeDelete ctermfg=yellow
 " Nerdtree {{{
 silent! map <F2> :NERDTreeToggle<CR>
 silent! map <F3> :NERDTreeFind<CR>
-let g:NERDTreeToggle = "<F2>"
 let g:NERDTreeMapActivateNode = "<space>"
 let NERDTreeAutoDeleteBuffer = 1
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
 let NERDTreeShowHidden = 1
+" }}}
+
+" {{{ maximizer
+command Max MaximizerToggle
 " }}}
 
 " fzf {{{
@@ -69,7 +72,7 @@ nnoremap <Leader>q :Files .<CR>
 " }}}
 
 " Goyo {{{
-nnoremap <c-g> :Goyo<CR>
+nnoremap <leader>z :Goyo<CR>
 " }}}
 
 " CoC {{{
@@ -131,7 +134,6 @@ nnoremap  <leader>s <esc>:%s/<C-r><C-w>//gc<left><left><left>
 
 " Folding
 nnoremap <Space> za
-nnoremap <leader>z zMzvzz
 
 " Generic
 nnoremap ; :
