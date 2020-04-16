@@ -69,7 +69,8 @@ command Max MaximizerToggle
 let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6, 'highlight': 'Todo', 'border': 'sharp'  }  }
 set rtp+=/usr/local/opt/fzf
 nnoremap <Leader>q :Files .<CR>
-nnoremap <Leader>w :Buffers<CR>
+nnoremap <Leader>b :Buffers<CR>
+nnoremap <Leader>f :Ag<space>
 " }}}
 
 " Goyo {{{
