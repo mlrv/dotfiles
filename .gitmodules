@@ -97,3 +97,6 @@
 [submodule "vim/plugins/nord-vim"]
 	path = vim/plugins/nord-vim
 	url = git@github.com:arcticicestudio/nord-vim.git
+[submodule "vim/plugins/vim-multiple-cursors"]
+	path = vim/plugins/vim-multiple-cursors
+	url = git@github.com:terryma/vim-multiple-cursors.git
