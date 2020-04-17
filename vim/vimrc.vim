@@ -17,7 +17,7 @@ set smartcase
 set incsearch
 set tabstop=2
 set shiftwidth=2
-set noexpandtab
+set expandtab
 set dir=/tmp/
 set number
 set relativenumber
