@@ -63,6 +63,13 @@ let NERDTreeDirArrows = 1
 let NERDTreeShowHidden = 1
 " }}}
 
+" {{{ Nerdcommenter
+let g:NERDDefaultAlign = 'left'
+let g:NERDCommentEmptyLines = 1
+let g:NERDToggleCheckAllLines = 1
+map <C-_> <Plug>NERDCommenterToggle
+" }}}
+
 " {{{ maximizer
 command Max MaximizerToggle
 " }}}
