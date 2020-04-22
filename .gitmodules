@@ -100,3 +100,6 @@
 [submodule "vim/plugins/vim-multiple-cursors"]
 	path = vim/plugins/vim-multiple-cursors
 	url = git@github.com:terryma/vim-multiple-cursors.git
+[submodule "vim/plugins/vim-elm-syntax"]
+	path = vim/plugins/vim-elm-syntax
+	url = git@github.com:andys8/vim-elm-syntax.git
