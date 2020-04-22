@@ -20,6 +20,7 @@
 	function gtg() { git log --pretty=oneline $1...$2 }  #Difference between two git tags
 	function gcb() { git checkout -b $1 }
 	alias gpp="git push origin HEAD"
+	alias gc-="git checkout -"
 	mkdir -p /tmp/log
 	
 # Settings
