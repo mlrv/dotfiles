@@ -29,6 +29,7 @@ set modelines=1
 set showbreak=↪
 set splitright
 set splitbelow
+set cursorline
 " }}}
 
 " Plugins {{{
