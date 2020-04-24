@@ -96,8 +96,13 @@ set updatetime=300
 set shortmess+=c
 set signcolumn=yes
 
-" GoTo code navigation.
+" GoTo code navigation
 nmap <silent> gd <Plug>(coc-definition)
+" Format selected region
+xmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>f  <Plug>(coc-format-selected)
+" Use `:Format` to format current buffer
+command! -nargs=0 Format :call CocAction('format')
 " Type under cursor
 nnoremap <silent> gh :call <SID>show_documentation()<CR>
 " Show all diagnostics
