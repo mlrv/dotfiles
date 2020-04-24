@@ -30,6 +30,7 @@ set showbreak=↪
 set splitright
 set splitbelow
 set cursorline
+set clipboard=unnamed
 " }}}
 
 " Plugins {{{
