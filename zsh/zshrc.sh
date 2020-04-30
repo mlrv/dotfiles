@@ -21,6 +21,8 @@
 	function gcb() { git checkout -b $1 }
 	alias gpp="git push origin HEAD"
 	alias gc-="git checkout -"
+	alias gs="git status"
+  alias v="vim ."
 	mkdir -p /tmp/log
 	
 # Settings
