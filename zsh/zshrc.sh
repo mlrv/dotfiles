@@ -19,6 +19,7 @@
 	alias dockerkill="stop $(docker ps -a -q)"
 	function gtg() { git log --pretty=oneline $1...$2 }  #Difference between two git tags
 	function gcb() { git checkout -b $1 }
+	function gco() { git checkout $1 }
 	alias gpp="git push origin HEAD"
 	alias gc-="git checkout -"
 	alias gs="git status"
