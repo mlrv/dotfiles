@@ -7,7 +7,7 @@
 	git config --global push.default current
 
 # Aliases
-	alias l="exa -lahF"
+	alias l="eza -lahF"
 	alias cat="bat"
 	alias c="clear"
 	alias n="npm run start"
