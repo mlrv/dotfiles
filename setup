@@ -1,0 +1,76 @@
+#!/bin/sh
+set -eu
+
+DOTFILES_DIR=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
+
+if [ "$(uname -s)" != "Darwin" ]; then
+  echo "This setup currently supports macOS only." >&2
+  exit 1
+fi
+
+if ! command -v brew >/dev/null 2>&1; then
+  echo "Installing Homebrew…"
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  if [ -x /opt/homebrew/bin/brew ]; then
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+  elif [ -x /usr/local/bin/brew ]; then
+    eval "$(/usr/local/bin/brew shellenv)"
+  fi
+fi
+
+echo "Installing packages…"
+brew bundle --file "$DOTFILES_DIR/Brewfile"
+
+backup_and_link() {
+  source_path=$1
+  target_path=$2
+  target_dir=$(dirname "$target_path")
+  mkdir -p "$target_dir"
+
+  if [ -L "$target_path" ] && [ "$(readlink "$target_path")" = "$source_path" ]; then
+    return
+  fi
+
+  if [ -e "$target_path" ] || [ -L "$target_path" ]; then
+    backup_path="${target_path}.backup.$(date +%Y%m%d%H%M%S)"
+    echo "Backing up $target_path to $backup_path"
+    mv "$target_path" "$backup_path"
+  fi
+
+  ln -s "$source_path" "$target_path"
+  echo "Linked $target_path"
+}
+
+backup_and_link "$DOTFILES_DIR/zsh/.zshrc" "$HOME/.zshrc"
+backup_and_link "$DOTFILES_DIR/vim/.vimrc" "$HOME/.vimrc"
+backup_and_link "$DOTFILES_DIR/vim/colors/nord.vim" "$HOME/.vim/colors/nord.vim"
+backup_and_link "$DOTFILES_DIR/ghostty/config.ghostty" "$HOME/.config/ghostty/config.ghostty"
+backup_and_link "$DOTFILES_DIR/starship/starship.toml" "$HOME/.config/starship.toml"
+
+git config --global init.defaultBranch main
+git config --global push.default current
+git config --global push.autoSetupRemote true
+git config --global pull.rebase true
+git config --global rebase.autoStash true
+git config --global fetch.prune true
+git config --global diff.colorMoved zebra
+git config --global merge.conflictStyle zdiff3
+git config --global core.pager delta
+git config --global interactive.diffFilter 'delta --color-only'
+git config --global delta.navigate true
+git config --global delta.side-by-side true
+
+zsh_path=$(command -v zsh)
+if [ "${SHELL:-}" != "$zsh_path" ]; then
+  if ! grep -qx "$zsh_path" /etc/shells; then
+    echo "$zsh_path must be added to /etc/shells before it can be your default shell."
+    echo "Run: echo '$zsh_path' | sudo tee -a /etc/shells"
+  fi
+  printf "Make %s your default shell? [y/N] " "$zsh_path"
+  read -r answer
+  case "$answer" in
+    y|Y|yes|YES) chsh -s "$zsh_path" ;;
+  esac
+fi
+
+echo "Done. Open Ghostty or start a new Zsh session."

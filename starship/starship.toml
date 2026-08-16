@@ -1,0 +1,30 @@
+add_newline = false
+palette = "nord"
+format = "$directory$git_branch$git_status$character"
+
+[directory]
+style = "bold frost_blue"
+truncation_length = 4
+
+[git_branch]
+symbol = "git:"
+style = "bold frost_dark"
+format = "on [$symbol$branch]($style) "
+
+[git_status]
+style = "bold aurora_red"
+format = "([$all_status$ahead_behind]($style) )"
+
+[character]
+success_symbol = "[❯](bold aurora_green)"
+error_symbol = "[❯](bold aurora_red)"
+vimcmd_symbol = "[❮](bold frost_blue)"
+
+[palettes.nord]
+polar_night = "#2e3440"
+snow_storm = "#d8dee9"
+frost_dark = "#5e81ac"
+frost_blue = "#88c0d0"
+aurora_red = "#bf616a"
+aurora_green = "#a3be8c"
+
