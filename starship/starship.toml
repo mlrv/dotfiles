@@ -1,6 +1,6 @@
 add_newline = false
 palette = "nord"
-format = "$directory$git_branch$git_status$character"
+format = "$directory$git_branch$custom$git_status$character"
 
 [directory]
 style = "bold frost_blue"
@@ -14,6 +14,19 @@ format = "on [$symbol$branch]($style) "
 [git_status]
 style = "bold aurora_red"
 format = "([$all_status$ahead_behind]($style) )"
+conflicted = ""
+deleted = ""
+modified = ""
+renamed = ""
+staged = ""
+stashed = ""
+typechanged = ""
+untracked = ""
+
+[custom.git_changes]
+command = "git status --porcelain 2>/dev/null | awk 'END { if (NR) print \"+\" NR; else exit 1 }'"
+when = true
+format = "[$output](bold aurora_red) "
 
 [character]
 success_symbol = "[❯](bold aurora_green)"
@@ -27,4 +40,3 @@ frost_dark = "#5e81ac"
 frost_blue = "#88c0d0"
 aurora_red = "#bf616a"
 aurora_green = "#a3be8c"
-
